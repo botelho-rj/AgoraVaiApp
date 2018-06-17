@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AgoraVaiApp</string>
+    <string name="facebook_app_id">111536786377157</string>
+    <string name="fb_login_protocol_scheme">fb111536786377157</string>
+</resources>

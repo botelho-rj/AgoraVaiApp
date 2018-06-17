@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "171726366089",
+    "firebase_url": "https://agoravaiapp-c725b.firebaseio.com",
+    "project_id": "agoravaiapp-c725b",
+    "storage_bucket": "agoravaiapp-c725b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171726366089:android:4b49bd5c100a116e",
+        "android_client_info": {
+          "package_name": "com.interdisciplinar.mainaccount.agoravaiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171726366089-io2iensbi8fnj5dcplbud049r3q1r738.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.interdisciplinar.mainaccount.agoravaiapp",
+            "certificate_hash": "d63177280a988d32c3120766e57ccfa6850f284c"
+          }
+        },
+        {
+          "client_id": "171726366089-0ein7ur9cq280hrdqgicdidm1u3kk5br.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "171726366089-0ein7ur9cq280hrdqgicdidm1u3kk5br.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVA8IdtJvlmIZpGhegVNGfNDvyc3eXpuQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171726366089-0ein7ur9cq280hrdqgicdidm1u3kk5br.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
