@@ -1,6 +1,7 @@
 package com.interdisciplinar.mainaccount.agoravaiapp;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,14 @@ public class DashboardActivity extends Activity {
 
         mAuth = FirebaseAuth.getInstance();
 
+    }
+
+    public void callListagem(View v){
+        callActivity(ListActivity.class);
+    }
+
+    public void callCreateEvento(View v){
+        callActivity(CreateEventoActivity.class);
     }
 
     public void logout(View v){

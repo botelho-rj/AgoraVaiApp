@@ -5,46 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DashboardActivity">
+    tools:context=".CreateEventoActivity">
 
     <TextView
-        android:id="@+id/textViewMenu"
+        android:id="@+id/txtCrieEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Menu"
+        android:text="Crie um evento"
         android:textSize="22sp" />
 
-    <Button
+    <EditText
+        android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:onClick="callCreateEvento"
-        android:text="Cadastrar Evento" />
+        android:hint="Digite o título"/>
 
-    <Button
+    <EditText
+        android:id="@+id/txtCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:onClick="callListagem"
-        android:text="Listagem" />
+        android:hint="Digite a categoria"/>
 
-    <Button
-        android:id="@+id/button7"
+    <EditText
+        android:id="@+id/txtDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Upload Imagem" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="221dp" />
+        android:layout_marginBottom="4dp"
+        android:hint="Digite a descrição" />
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnCadEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="logout"
-        android:text="Logout" />
+        android:text="Cadastrar" />
+
 </LinearLayout>
