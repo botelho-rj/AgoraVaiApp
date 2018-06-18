@@ -1,9 +1,12 @@
 package com.interdisciplinar.mainaccount.agoravaiapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 
 public class ListagemActivity extends Activity {
 
+    private TextView voltar;
     private ListView list;
     private ArrayAdapter<Evento> adapter;
     private ArrayList<Evento> eventos;
@@ -26,8 +30,10 @@ public class ListagemActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem);
 
-        eventos = new ArrayList<>();
+        voltar = findViewById(R.id.tvVoltar);
         list = findViewById(R.id.list);
+
+        eventos = new ArrayList<>();
         adapter = new EventoAdapter(this,eventos);
         list.setAdapter(adapter);
 
@@ -51,6 +57,13 @@ public class ListagemActivity extends Activity {
 
             }
         };
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callActivity(DashboardActivity.class);
+            }
+        });
     }
 
     @Override
@@ -63,5 +76,11 @@ public class ListagemActivity extends Activity {
     protected void onStop() {
         super.onStop();
         mDatabase.removeEventListener(valueEventListener);
+    }
+
+    private void callActivity(Class newActivity) {
+        Intent newIntent = new Intent(ListagemActivity.this,newActivity);
+        startActivity(newIntent);
+        finish();
     }
 }

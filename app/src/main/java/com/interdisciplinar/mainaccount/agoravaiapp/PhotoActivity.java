@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,6 +40,8 @@ public class PhotoActivity extends Activity {
     private String userChoosenTask;
     /*Objeto do Firebase para trabalhar com o armazenamento de arquivo na plataforma*/
     private StorageReference mStorageRef;
+    //TextView Voltar
+    private TextView voltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,14 @@ public class PhotoActivity extends Activity {
         //Passa a referência do Storage do Firebase para o objeto. Aqui poderemos salvar o mesmo na plataforma, por exemplo.
         mStorageRef = FirebaseStorage.getInstance().getReference();
         image = findViewById(R.id.imageUser);
+        voltar = findViewById(R.id.txtVoltar);
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callActivity(DashboardActivity.class);
+            }
+        });
     }
 
     /*Função que irá exibir uma caixa de diálogo para o usuário escolher o que
@@ -210,5 +221,11 @@ public class PhotoActivity extends Activity {
                         // ...
                     }
                 });
+    }
+
+    private void callActivity(Class newActivity) {
+        Intent newIntent = new Intent(PhotoActivity.this,newActivity);
+        startActivity(newIntent);
+        finish();
     }
 }

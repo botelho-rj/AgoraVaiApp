@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +26,8 @@ public class CreateEventoActivity extends Activity {
     private EditText txtDescricao;
     private Button btnCadEvento;
 
+    private TextView voltar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class CreateEventoActivity extends Activity {
         txtCategoria = findViewById(R.id.txtCategoria);
         txtDescricao = findViewById(R.id.txtDescricao);
         btnCadEvento = findViewById(R.id.btnCadEvento);
+        voltar = findViewById(R.id.textViewVoltar);
 
         btnCadEvento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +49,13 @@ public class CreateEventoActivity extends Activity {
                 evento.setDescricao(txtDescricao.getText().toString());
 
                 salvarEvento(evento);
+            }
+        });
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callActivity(DashboardActivity.class);
             }
         });
     }

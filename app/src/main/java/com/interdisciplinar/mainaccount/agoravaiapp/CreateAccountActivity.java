@@ -35,8 +35,7 @@ public class CreateAccountActivity extends Activity {
 
         entre.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
-                startActivity(intent);
+                callActivity(MainActivity.class);
             }
         });
     }

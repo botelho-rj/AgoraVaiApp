@@ -19,6 +19,14 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="415dp" />
+
+    <TextView
+        android:id="@+id/tvVoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Voltar"
+        android:textSize="20sp" />
 
 </LinearLayout>
