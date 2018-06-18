@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -44,7 +43,7 @@ public class PhotoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_photo);
         //Passa a referência do Storage do Firebase para o objeto. Aqui poderemos salvar o mesmo na plataforma, por exemplo.
         mStorageRef = FirebaseStorage.getInstance().getReference();
         image = findViewById(R.id.imageUser);
@@ -167,10 +166,10 @@ public class PhotoActivity extends Activity {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         /*Aqui criamos um arquivo para salvar a imagem obtida da camera*/
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.PNG, 90, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
         /*Environment.getExternalStoragePublicDirectory salvará a imagem em um diretório manipulável pelo usuário*/
         File destination = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                System.currentTimeMillis() + ".png");
+                System.currentTimeMillis() + ".jpg");
         FileOutputStream fo;
         try {
             boolean result=Utility.checkPermission(PhotoActivity.this);
@@ -193,7 +192,7 @@ public class PhotoActivity extends Activity {
 
     /*Função que envia uma Imagem local para o FireBase*/
     private void uploadFile(File file){
-        StorageReference storageReference = mStorageRef.child(file.getName());
+        StorageReference storageReference = mStorageRef.child("image.jpg");
 
         storageReference.putFile(Uri.fromFile(file))
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -201,13 +200,14 @@ public class PhotoActivity extends Activity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Get a URL to the uploaded content
                         Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(PhotoActivity.this, "Arquivo enviado para o firebase", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PhotoActivity.this, "UPLOAD OK!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        Log.e("E", exception.getMessage());
+                        // Handle unsuccessful uploads
+                        // ...
                     }
                 });
     }
