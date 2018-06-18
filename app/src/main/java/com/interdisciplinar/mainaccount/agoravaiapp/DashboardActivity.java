@@ -22,7 +22,7 @@ public class DashboardActivity extends Activity {
     }
 
     public void callListagem(View v){
-        callActivity(ListActivity.class);
+        callActivity(ListagemActivity.class);
     }
 
     public void callCreateEvento(View v){
