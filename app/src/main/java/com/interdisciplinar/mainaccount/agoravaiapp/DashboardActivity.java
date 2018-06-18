@@ -21,12 +21,16 @@ public class DashboardActivity extends Activity {
 
     }
 
+    public void callCreateEvento(View v){
+        callActivity(CreateEventoActivity.class);
+    }
+
     public void callListagem(View v){
         callActivity(ListagemActivity.class);
     }
 
-    public void callCreateEvento(View v){
-        callActivity(CreateEventoActivity.class);
+    public void callUpload(View v){
+        callActivity(PhotoActivity.class);
     }
 
     public void logout(View v){
