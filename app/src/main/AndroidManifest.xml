@@ -26,7 +26,8 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".ListagemActivity" />
-        <activity android:name=".CreateEventoActivity"></activity>
+        <activity android:name=".CreateEventoActivity" />
+        <activity android:name=".PhotoActivity"></activity>
     </application>
 
 </manifest>
